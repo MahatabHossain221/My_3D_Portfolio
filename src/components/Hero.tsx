@@ -78,7 +78,7 @@ function PhotoFrame() {
         <div className="relative aspect-[4/5] w-full bg-space-400">
           {!imgError ? (
             <img
-              src="/mahtab_image.jpeg"
+              src="./mahtab_image.jpeg"
               alt="Mahtab Hossain"
               className="h-full w-full object-cover"
               onError={() => setImgError(true)}
