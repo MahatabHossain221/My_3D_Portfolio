@@ -1,5 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { ArrowDown, FolderGit2, Mail, Sparkles, User } from 'lucide-react';
+import mahtabImage from '../mahtab_image.jpeg';
 
 const SUBTITLE = 'Building the Web, One Component at a Time.';
 
@@ -78,7 +79,7 @@ function PhotoFrame() {
         <div className="relative aspect-[4/5] w-full bg-space-400">
           {!imgError ? (
             <img
-              src="./mahtab_image.jpeg"
+              src={mahtabImage}
               alt="Mahtab Hossain"
               className="h-full w-full object-cover"
               onError={() => setImgError(true)}
