@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-space-50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-space-500 text-gray-200 font-body antialiased overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-emerald-glow/30 text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-space-700;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-emerald-600/50 rounded-full;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-emerald-500/70;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .neon-text-emerald {
+    @apply text-emerald-glow;
+    text-shadow: 0 0 10px rgba(0, 255, 163, 0.5), 0 0 20px rgba(0, 255, 163, 0.3),
+      0 0 40px rgba(0, 255, 163, 0.1);
+  }
+
+  .neon-text-cyan {
+    @apply text-cyan-glow;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3),
+      0 0 40px rgba(0, 240, 255, 0.1);
+  }
+
+  .neon-border-emerald {
+    box-shadow: 0 0 5px rgba(0, 255, 163, 0.3), 0 0 20px rgba(0, 255, 163, 0.2),
+      inset 0 0 10px rgba(0, 255, 163, 0.05);
+  }
+
+  .neon-border-cyan {
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.3), 0 0 20px rgba(0, 240, 255, 0.2),
+      inset 0 0 10px rgba(0, 240, 255, 0.05);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-emerald-glow via-cyan-glow to-emerald-glow bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl
+      bg-gradient-to-r from-emerald-500 to-cyan-glow text-space-900 font-semibold
+      transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-glow/30
+      active:scale-100;
+  }
+
+  .btn-ghost {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl
+      border border-white/15 text-gray-200 font-medium backdrop-blur-sm
+      transition-all duration-300 hover:border-emerald-glow/50 hover:text-emerald-glow
+      hover:bg-emerald-glow/5 active:scale-100;
+  }
+
+  .section-label {
+    @apply font-mono text-sm text-emerald-glow/80 tracking-widest uppercase;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Reveal-on-scroll animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cursor hide on touch devices */
+@media (hover: none) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
